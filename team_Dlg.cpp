@@ -1,4 +1,4 @@
-﻿
+
 // team_Dlg.cpp: 구현 파일
 
 #include "pch.h"
@@ -245,6 +245,12 @@ void CteamDlg::OnDeltaposSpinSheet(NMHDR* pNMHDR, LRESULT* pResult)
     // 여기서 address_의 사진을 출력
     PrintBitmap(add, IDC_STATIC3);
     PrintBitmap(add, IDC_STATIC2);
+
+    CString tmp4;
+    tmp4.Format(_T("_%d"), db.m_Chars[csv_now].m_type);
+    CString tmp5 = base_address + _T("\\04_3d\\") + db.m_Chars[csv_now].m_char + tmp4 + _T(".stl");
+
+    callVtk(tmp5);
 
     PrintData();
     PrintList();
